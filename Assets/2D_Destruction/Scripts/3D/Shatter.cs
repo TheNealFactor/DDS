@@ -26,6 +26,8 @@ public class Shatter : MonoBehaviour
         {
             piece.AddComponent<Rigidbody>().ResetCenterOfMass();
             piece.AddComponent<MeshCollider>().convex = true;
+            //piece.AddComponent<Shatter>().loadTime = 0.15f;
+            piece.tag = "Shatter";
 
             if(gen > 0)
             {
