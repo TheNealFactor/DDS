@@ -11,18 +11,14 @@ namespace LinearAlgebra
 
         void Update()
         {
-            //The direction you are facing
-            Vector3 youDir = youTrans.forward;
+            //The right direction of the direction you are facing
+            Vector3 youDir = youTrans.right;
 
             //The direction from you to the waypoint
             Vector3 waypointDir = wayPointTrans.position - youTrans.position;
 
-            //The cross product between these vectors
-            Vector3 crossProduct = Vector3.Cross(youDir, waypointDir);
-
-            //The dot product between the your up vector and the cross product
-            //This can be said to be a volume that can be negative
-            float dotProduct = Vector3.Dot(crossProduct, youTrans.up);
+            //The dot product between the vectors
+            float dotProduct = Vector3.Dot(youDir, waypointDir);
 
             //Now we can decide if we should turn left or right
             if (dotProduct > 0f)
@@ -36,3 +32,26 @@ namespace LinearAlgebra
         }
     }
 }
+
+
+
+
+////The right direction of the direction you are facing
+//Vector3 youDir = youTrans.right;
+
+////The direction you want to reach by turning left or right
+////Here we want to reach the forward direction of the waypoint
+//Vector3 waypointDir = wayPointTrans.forward;
+
+////The dot product between the vectors
+//float dotProduct = Vector3.Dot(youDir, waypointDir);
+
+////Now we can decide if we should turn left or right
+//if (dotProduct > 0f)
+//{
+//    Debug.Log("Turn right");
+//}
+//else
+//{
+//    Debug.Log("Turn left");
+//}
