@@ -5,7 +5,7 @@ using UnityEngine;
 public class headController : MonoBehaviour
 {
 
-    public pauseMenuController pauseMenu;
+   
 
 
 
@@ -24,10 +24,9 @@ public class headController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!pauseMenu.paused)
-        {
+
             DoMotion();
-        }
+        
     }
 
     void DoMotion()

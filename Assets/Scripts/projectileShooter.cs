@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class projectileShooter : MonoBehaviour
 {
-    public pauseMenuController pauseMenu;
+
 
     public GameObject projectile;
     public GameObject projectileExplosive;
@@ -25,13 +25,12 @@ public class projectileShooter : MonoBehaviour
     {
         if (Input.GetButtonDown("fire"))
         {
-            if (!pauseMenu.paused)
-            {
+
                 GameObject projectileInstance = Instantiate(currentProjectile, transform.position, transform.rotation);
 
                 projectileInstance.GetComponent<Rigidbody>().velocity = power * transform.forward;
             }
-        }
+        
     }
 
     public void setExplosivity(bool value)
