@@ -27,6 +27,7 @@ public class explosion : MonoBehaviour
     public float buffer = 0.1f;
     public bool delaunayMode = false;
     public bool triangulateOnStart = false;
+    public bool frameMode = false;
 
 
     private List<List<Vector2>> realActualTriangles;
@@ -74,12 +75,27 @@ public class explosion : MonoBehaviour
         // generates the random points
         float randX;
         float randY;
-        for (int i = 0; i < num; i++)
-        {
-            randX = Random.Range(-xDimention / 2 + buffer, xDimention / 2 - buffer);//so the points arnt on the frame itself
-            randY = Random.Range(-yDimention / 2 + buffer, yDimention / 2 - buffer);
 
-            points.Add(new Vector2(randX, randY));
+        if (frameMode)
+        { 
+            for (int i = 0; i < num; i++)
+            {
+                randX = Random.Range(-xDimention / 2 + buffer, xDimention / 2 - buffer);//so the points arnt on the frame itself
+                randY = Random.Range(-yDimention / 2 + buffer, yDimention / 2 - buffer);
+                points.Add(new Vector2(randX, randY));
+
+            }
+    }
+
+        else 
+        {
+            for (int i = 0; i < num; i++)
+            {
+                randX = Random.Range(-xDimention, xDimention);//so the points arnt on the frame itself
+                randY = Random.Range(-yDimention, yDimention);
+
+                points.Add(new Vector2(randX, randY));
+            }
         }
 
         //foreach (Vector2 point in points)
@@ -125,8 +141,10 @@ public class explosion : MonoBehaviour
         convexHull.RemoveAt(convexHull.Count - 1);
 
         //makes the frame
-        MakeFrame(convexHull);
-
+        if (frameMode)
+        {
+            MakeFrame(convexHull);
+        }
         //gets rid of the original wall.
         Destroy(gameObject);
     }
