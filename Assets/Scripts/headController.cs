@@ -24,9 +24,7 @@ public class headController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-            DoMotion();
-        
+        DoMotion();   
     }
 
     void DoMotion()
