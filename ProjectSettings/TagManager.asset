@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shatter
   - Activator
+  - Explodable
   layers:
   - Default
   - TransparentFX
